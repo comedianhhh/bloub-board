@@ -430,17 +430,17 @@ function Home() {
               <div className="resolved-identity">
                 <ListingArt
                   image={previewLogo || null}
-                  face={
+                  face={(size) => (
                     <ListingFace
                       identity={normalizedIdentity.ok ? normalizedIdentity.identity.canonicalKey : identityInput}
-                      size={previewLogo ? 22 : 44}
+                      size={size}
                       rank={previewRank}
                       settledAgoMs={0}
                       daysLeft={90}
                       fading={false}
                       live
                     />
-                  }
+                  )}
                 />
                 <div>
                   <strong>{listingTitle || (normalizedIdentity.ok ? normalizedIdentity.identity.display : '')}</strong>
@@ -551,17 +551,17 @@ function Home() {
                   <span className="listing-rank num">{rank}</span>
                   <ListingArt
                     image={listing.image}
-                    face={
+                    face={(size) => (
                       <ListingFace
                         identity={listingIdentity(listing)}
-                        size={listing.image ? 22 : 44}
+                        size={size}
                         rank={rank}
                         settledAgoMs={settledAgoMs}
                         daysLeft={runway.daysLeft}
                         fading={runway.fading}
                         live={liveFace === listing.id}
                       />
-                    }
+                    )}
                   />
                   <div className="listing-copy">
                     <a href={listing.href} target="_blank" rel="sponsored noopener noreferrer">

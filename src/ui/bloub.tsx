@@ -86,14 +86,17 @@ export function ListingFace(props: {
  * A listing's picture with its face pinned to the bottom-left corner. Without
  * a picture (or once it fails to load) the face stands in at full size.
  */
-export function ListingArt(props: { image: string | null; face: ReactNode }) {
+export const ART_SIZE = 44
+export const CORNER_FACE_SIZE = 22
+
+export function ListingArt(props: { image: string | null; face: (size: number) => ReactNode }) {
   const [broken, setBroken] = useState(false)
   useEffect(() => setBroken(false), [props.image])
-  if (!props.image || broken) return <>{props.face}</>
+  if (!props.image || broken) return <>{props.face(ART_SIZE)}</>
   return (
     <span className="listing-art">
-      <img src={props.image} alt="" width="44" height="44" loading="lazy" onError={() => setBroken(true)} />
-      <span className="listing-art-face">{props.face}</span>
+      <img src={props.image} alt="" width={ART_SIZE} height={ART_SIZE} loading="lazy" onError={() => setBroken(true)} />
+      <span className="listing-art-face">{props.face(CORNER_FACE_SIZE)}</span>
     </span>
   )
 }
