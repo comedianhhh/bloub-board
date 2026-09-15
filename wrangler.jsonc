@@ -1,25 +1,19 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "youbid-lol",
+  "name": "bloub-board",
   "compatibility_date": "2026-08-21",
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
   "main": "@tanstack/react-start/server-entry",
   "observability": { "enabled": true },
   "vars": {
-    "APP_URL": "https://youbid.lol"
+    "APP_URL": "https://bloub-board.alan996.workers.dev"
   },
-  "routes": [
-    {
-      "pattern": "youbid.lol/*",
-      "zone_name": "youbid.lol"
-    }
-  ],
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "youbid-lol",
-      "database_id": "5fc1f229-ee89-42c9-8d44-fe7af9c0d15a",
+      "database_name": "bloub-board",
+      "database_id": "203a3225-b84c-4316-9365-0bfa037463ee",
       "migrations_dir": "migrations"
     }
   ],
