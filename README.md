@@ -28,12 +28,12 @@ git clone https://github.com/comedianhhh/bloub-react ../bloub-react   # linked v
 pnpm install
 cp .dev.vars.example .dev.vars
 pnpm exec wrangler d1 migrations apply bloub-board --local
-node dev.cjs        # http://localhost:3010
+pnpm exec vite dev --port 3010        # http://localhost:3010
 pnpm typecheck && pnpm test
 ```
 
 Mock checkout and `POST /api/mock/settle` run only when `APP_URL` is localhost.
-For real Stripe events locally: `stripe listen --forward-to localhost:3010/api/stripe/webhook`
+For real Stripe events locally: `stripe listen --forward-to localhost:3010/api/webhooks/stripe`
 and put its `whsec_` in `.dev.vars`.
 
 ## Deploy
