@@ -16,9 +16,6 @@ export function SiteHeader() {
       <nav className="header-nav" aria-label={copy.navSite}>
         <Link to="/rules">{copy.navRules}</Link>
         <Link to="/stats">{copy.navStats ?? en.navStats}</Link>
-        <a href="https://github.com/Go7hic/youbid" target="_blank" rel="noreferrer">
-          {copy.navGitHub}
-        </a>
         <LocaleSwitcher />
       </nav>
     </header>
