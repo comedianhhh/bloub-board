@@ -1,14 +1,13 @@
-# Youbid
+# Bloub Board
 
-> Youbid is a public paid leaderboard at youbid.lol. Anyone can pay to place a URL or X handle on the board. Rank is the bidder's current balance, which falls 3% a day, so the board shows what people are paying now rather than what they once paid.
+> Bloub Board is a public paid leaderboard at bloub-board.alan996.workers.dev. Anyone can pay to place a URL or X handle on the board. Rank is the bidder's current balance, which falls 3% a day, so the board shows what people are paying now rather than what they once paid.
 
 ## Primary Links
 
-- [Board](https://youbid.lol/): the live leaderboard and the bid form.
-- [Rules](https://youbid.lol/rules): the public ranking contract. Markdown: [rules.md](https://youbid.lol/rules.md).
-- [Live stats](https://youbid.lol/stats): visitors, live volume, first place, recent settlements.
-- [Stats JSON](https://youbid.lol/api/stats): the same figures as a JSON document.
-- [Source](https://github.com/Go7hic/youbid): the implementation, MIT licensed.
+- [Board](https://bloub-board.alan996.workers.dev/): the live leaderboard and the bid form.
+- [Rules](https://bloub-board.alan996.workers.dev/rules): the public ranking contract. Markdown: [rules.md](https://bloub-board.alan996.workers.dev/rules.md).
+- [Live stats](https://bloub-board.alan996.workers.dev/stats): visitors, live volume, first place, recent settlements.
+- [Stats JSON](https://bloub-board.alan996.workers.dev/api/stats): the same figures as a JSON document.
 
 ## How ranking works
 
@@ -33,7 +32,7 @@
 
 ## About
 
-Youbid runs on TanStack Start and Cloudflare Workers, with D1 as the single authority for
+Bloub Board runs on TanStack Start and Cloudflare Workers, with D1 as the single authority for
 listings, checkout intents, payments, and takeover leases. The product idea and board layout
-take cues from outbid.lol; Youbid is a separate implementation. There is no revenue sharing,
+take cues from outbid.lol; Bloub Board is a separate implementation. There is no revenue sharing,
 no ad network, and no API key to obtain: the board is the product.

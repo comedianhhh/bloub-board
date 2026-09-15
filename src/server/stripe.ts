@@ -55,8 +55,8 @@ export async function createStripeCheckout(
               unit_amount: input.amountCents,
               product_data: {
                 name: input.takeover
-                  ? 'Youbid page-one listing · 3 hours'
-                  : 'Youbid listing',
+                  ? 'Bloub Board page-one listing · 3 hours'
+                  : 'Bloub Board listing',
                 description: `Paid listing for ${input.canonicalIdentity}`,
               },
             },
@@ -134,7 +134,7 @@ export async function verifyStripeWebhookEvent(
     const session = event.data.object
     const intentId = session.metadata?.youbid_intent_id
     if (!intentId || session.payment_status !== 'paid' || session.currency !== 'usd') {
-      return { ok: false, status: 409, message: 'Stripe Checkout Session is not a paid USD Youbid intent.' }
+      return { ok: false, status: 409, message: 'Stripe Checkout Session is not a paid USD Bloub Board intent.' }
     }
     const providerOrderId =
       typeof session.payment_intent === 'string' ? session.payment_intent : session.id
@@ -160,7 +160,7 @@ export async function verifyStripeWebhookEvent(
     const charge = event.data.object
     const providerOrderId = typeof charge.payment_intent === 'string' ? charge.payment_intent : charge.id
     if (charge.currency !== 'usd') {
-      return { ok: false, status: 409, message: 'Refund is not a USD Youbid charge.' }
+      return { ok: false, status: 409, message: 'Refund is not a USD Bloub Board charge.' }
     }
     return {
       ok: true,

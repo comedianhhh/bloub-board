@@ -16,7 +16,7 @@ export const zh: Messages = {
   navRules: '规则',
   navGitHub: 'GitHub',
   navSite: '站点',
-  homeAria: 'Youbid 首页',
+  homeAria: 'Bloub Board 首页',
   language: '语言',
   visitorsOnline: '{count} 人在线',
   visitorsLast24h: '过去 24 小时 {count} 人',
@@ -63,7 +63,7 @@ export const zh: Messages = {
   prev: '上一页',
   next: '下一页',
   takeoverLiveKicker: '第一页接管 · 已付费',
-  takeoverOwnsUntil: '这条条目占用 Youbid 第一页至 {time}。',
+  takeoverOwnsUntil: '这条条目占用 Bloub Board 第一页至 {time}。',
   browseRegular: '浏览常规榜单',
   emptyBoard: '还没有在榜条目。第一笔已验证出价就是 #1。金额每天下降 3%。',
   passFor: '+{amount} 越过',
@@ -76,7 +76,7 @@ export const zh: Messages = {
   initialAmountAria: '已付金额 {amount}',
   onBoardUntil: '在榜至 {date}',
   clicks: '{count} 次点击',
-  defaultDescription: '已在 Youbid 付费并验证。',
+  defaultDescription: '已在 Bloub Board 付费并验证。',
   checkoutKicker: '本地模拟结账',
   reviewBid: '确认支付',
   reviewSponsor: '确认赞助',
@@ -105,13 +105,13 @@ export const zh: Messages = {
   errorCheckoutStart: '无法开始结账。',
   errorMockSettle: '模拟结算失败。',
 
-  notFoundTitle: 'Youbid 上没有这个页面',
+  notFoundTitle: 'Bloub Board 上没有这个页面',
   notFoundLead: '公开榜单、实时数据和收据才是存在的路由。',
   backToBoard: '回到榜单',
 
-  rulesKicker: 'Youbid 怎么运作',
+  rulesKicker: 'Bloub Board 怎么运作',
   rulesTitle: '排名就是当前金额',
-  rulesLead: 'Youbid 是公开榜单。你为一个网址或 @handle 付钱。打开结账不会改榜。只有已验证付款结算后，排名才会动。',
+  rulesLead: 'Bloub Board 是公开榜单。你为一个网址或 @handle 付钱。打开结账不会改榜。只有已验证付款结算后，排名才会动。',
   rulesSections: [
     {
       heading: '出价',
@@ -157,7 +157,7 @@ export const zh: Messages = {
   rulesCanonicalStats: '实时数据',
 
   statsKicker: '实时',
-  statsTitle: 'Youbid 数据',
+  statsTitle: 'Bloub Board 数据',
   statsLead: '公开榜单流量和已结算付款。每隔几秒更新。密钥和所有者令牌不会出现在这个页面。',
   updated: '更新于 {time}',
   statOnline: '在线访客',
@@ -190,6 +190,6 @@ export const zh: Messages = {
   seeBoard: '查看榜单',
   receiptKicker: '收据',
   noCheckout: '找不到这次结账',
-  noCheckoutLead: 'Youbid 上没有这个收据 id。请从榜单重新出价。',
-  backToYoubid: '回到 Youbid',
+  noCheckoutLead: 'Bloub Board 上没有这个收据 id。请从榜单重新出价。',
+  backToYoubid: '回到 Bloub Board',
 }

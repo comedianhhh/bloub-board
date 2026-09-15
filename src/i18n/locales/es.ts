@@ -16,7 +16,7 @@ export const es: Messages = {
   navRules: 'Reglas',
   navGitHub: 'GitHub',
   navSite: 'Sitio',
-  homeAria: 'Inicio de Youbid',
+  homeAria: 'Inicio de Bloub Board',
   language: 'Idioma',
   visitorsOnline: '{count} visitantes en línea',
   visitorsLast24h: '{count} en las últimas 24 horas',
@@ -63,7 +63,7 @@ export const es: Messages = {
   prev: 'Ant.',
   next: 'Sig.',
   takeoverLiveKicker: 'Toma de la primera página · pagada',
-  takeoverOwnsUntil: 'Esta ficha ocupa la primera página de Youbid hasta las {time}.',
+  takeoverOwnsUntil: 'Esta ficha ocupa la primera página de Bloub Board hasta las {time}.',
   browseRegular: 'Ver el ranking habitual',
   emptyBoard: 'Aún no hay fichas en vivo. La primera puja verificada toma el #1. Los importes bajan un 3 % al día.',
   passFor: '+{amount} para pasar',
@@ -76,7 +76,7 @@ export const es: Messages = {
   initialAmountAria: 'Importe pagado {amount}',
   onBoardUntil: 'en el tablero hasta {date}',
   clicks: '{count} clics',
-  defaultDescription: 'Pagado y verificado en Youbid.',
+  defaultDescription: 'Pagado y verificado en Bloub Board.',
   checkoutKicker: 'Pago local simulado',
   reviewBid: 'Revisar el pago',
   reviewSponsor: 'Revisar el patrocinio',
@@ -105,13 +105,13 @@ export const es: Messages = {
   errorCheckoutStart: 'No se pudo iniciar el pago.',
   errorMockSettle: 'Falló la liquidación simulada.',
 
-  notFoundTitle: 'Esta página no está en Youbid',
+  notFoundTitle: 'Esta página no está en Bloub Board',
   notFoundLead: 'El tablero público, las estadísticas en vivo y los recibos son las rutas que existen.',
   backToBoard: 'Volver al tablero',
 
-  rulesKicker: 'Cómo funciona Youbid',
+  rulesKicker: 'Cómo funciona Bloub Board',
   rulesTitle: 'El puesto es el importe actual',
-  rulesLead: 'Youbid es un ranking público. Pagas por una URL o un @handle. Abrir el pago no cambia el tablero. El puesto solo se mueve cuando un pago verificado se liquida.',
+  rulesLead: 'Bloub Board es un ranking público. Pagas por una URL o un @handle. Abrir el pago no cambia el tablero. El puesto solo se mueve cuando un pago verificado se liquida.',
   rulesSections: [
     {
       heading: 'Pago',
@@ -157,7 +157,7 @@ export const es: Messages = {
   rulesCanonicalStats: 'Estadísticas en vivo',
 
   statsKicker: 'En vivo',
-  statsTitle: 'Estadísticas de Youbid',
+  statsTitle: 'Estadísticas de Bloub Board',
   statsLead: 'Tráfico público del tablero y pagos liquidados. Se actualiza cada pocos segundos. Los secretos y tokens de propietario no aparecen aquí.',
   updated: 'Actualizado {time}',
   statOnline: 'Visitantes en línea',
@@ -190,6 +190,6 @@ export const es: Messages = {
   seeBoard: 'Ver el tablero',
   receiptKicker: 'Recibo',
   noCheckout: 'No se encontró el pago',
-  noCheckoutLead: 'Ese id de recibo no está en Youbid. Empieza una nueva puja desde el tablero.',
-  backToYoubid: 'Volver a Youbid',
+  noCheckoutLead: 'Ese id de recibo no está en Bloub Board. Empieza una nueva puja desde el tablero.',
+  backToYoubid: 'Volver a Bloub Board',
 }

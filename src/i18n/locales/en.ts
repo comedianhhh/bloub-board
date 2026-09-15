@@ -16,7 +16,7 @@ export const en: Messages = {
   navRules: 'Rules',
   navGitHub: 'GitHub',
   navSite: 'Site',
-  homeAria: 'Youbid home',
+  homeAria: 'Bloub Board home',
   language: 'Language',
   visitorsOnline: '{count} visitors online',
   visitorsLast24h: '{count} in the Last 24 hours',
@@ -65,7 +65,7 @@ export const en: Messages = {
   prev: 'Prev',
   next: 'Next',
   takeoverLiveKicker: 'First-page takeover · paid',
-  takeoverOwnsUntil: 'This listing owns Youbid page one until {time}.',
+  takeoverOwnsUntil: 'This listing owns Bloub Board page one until {time}.',
   browseRegular: 'Browse the regular leaderboard',
   emptyBoard: 'No live listings yet. The first verified payment takes #1. Amounts fall 3% a day.',
   passFor: '+{amount} to pass',
@@ -78,7 +78,7 @@ export const en: Messages = {
   initialAmountAria: 'Paid amount {amount}',
   onBoardUntil: 'on the board until {date}',
   clicks: '{count} clicks',
-  defaultDescription: 'Paid and verified on Youbid.',
+  defaultDescription: 'Paid and verified on Bloub Board.',
   checkoutKicker: 'Local mock checkout',
   reviewBid: 'Review your payment',
   reviewSponsor: 'Review your sponsorship',
@@ -108,14 +108,14 @@ export const en: Messages = {
   errorCheckoutStart: 'Checkout could not start.',
   errorMockSettle: 'Mock settlement failed.',
 
-  notFoundTitle: 'This page is not on Youbid',
+  notFoundTitle: 'This page is not on Bloub Board',
   notFoundLead: 'The public board, live stats, and receipts are the routes that exist.',
   backToBoard: 'Back to the board',
 
-  rulesKicker: 'How Youbid works',
+  rulesKicker: 'How Bloub Board works',
   rulesTitle: 'Rank is the current amount',
   rulesLead:
-    'Youbid is a public leaderboard. You pay for a URL or @handle. Opening checkout does nothing to the board. Rank moves only after a verified payment settles.',
+    'Bloub Board is a public leaderboard. You pay for a URL or @handle. Opening checkout does nothing to the board. Rank moves only after a verified payment settles.',
   rulesSections: [
     {
       heading: 'Paying',
@@ -162,7 +162,7 @@ export const en: Messages = {
   rulesCanonicalStats: 'Live stats',
 
   statsKicker: 'Live',
-  statsTitle: 'Youbid stats',
+  statsTitle: 'Bloub Board stats',
   statsLead:
     'Public board traffic and settled payments. Updates every few seconds. Secrets and owner tokens stay off this page.',
   updated: 'Updated {time}',
@@ -198,6 +198,6 @@ export const en: Messages = {
   seeBoard: 'See the board',
   receiptKicker: 'Receipt',
   noCheckout: 'No checkout found',
-  noCheckoutLead: 'That receipt id is not on Youbid. Start a new bid from the board.',
-  backToYoubid: 'Back to Youbid',
+  noCheckoutLead: 'That receipt id is not on Bloub Board. Start a new bid from the board.',
+  backToYoubid: 'Back to Bloub Board',
 }

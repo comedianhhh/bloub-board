@@ -11,7 +11,7 @@ export function SiteHeader() {
     <header className="site-header">
       <Link className="wordmark" to="/" aria-label={copy.homeAria}>
         <Mascot mood="idle" size={30} follow={false} frozenAt={0.3} />
-        <span>youbid</span>
+        <span>Bloub Board</span>
       </Link>
       <nav className="header-nav" aria-label={copy.navSite}>
         <Link to="/rules">{copy.navRules}</Link>

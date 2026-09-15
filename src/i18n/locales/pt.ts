@@ -16,7 +16,7 @@ export const pt: Messages = {
   navRules: 'Regras',
   navGitHub: 'GitHub',
   navSite: 'Site',
-  homeAria: 'Início do Youbid',
+  homeAria: 'Início do Bloub Board',
   language: 'Idioma',
   visitorsOnline: '{count} visitantes online',
   visitorsLast24h: '{count} nas últimas 24 horas',
@@ -63,7 +63,7 @@ export const pt: Messages = {
   prev: 'Ant.',
   next: 'Seg.',
   takeoverLiveKicker: 'Tomada da primeira página · paga',
-  takeoverOwnsUntil: 'Este anúncio ocupa a primeira página do Youbid até {time}.',
+  takeoverOwnsUntil: 'Este anúncio ocupa a primeira página do Bloub Board até {time}.',
   browseRegular: 'Ver o ranking habitual',
   emptyBoard: 'Ainda não há anúncios ao vivo. O primeiro lance verificado fica com o #1. Os valores caem 3% ao dia.',
   passFor: '+{amount} para passar',
@@ -76,7 +76,7 @@ export const pt: Messages = {
   initialAmountAria: 'Valor pago {amount}',
   onBoardUntil: 'no quadro até {date}',
   clicks: '{count} cliques',
-  defaultDescription: 'Pago e verificado no Youbid.',
+  defaultDescription: 'Pago e verificado no Bloub Board.',
   checkoutKicker: 'Pagamento local simulado',
   reviewBid: 'Rever o pagamento',
   reviewSponsor: 'Rever o patrocínio',
@@ -105,13 +105,13 @@ export const pt: Messages = {
   errorCheckoutStart: 'Não foi possível iniciar o pagamento.',
   errorMockSettle: 'A liquidação simulada falhou.',
 
-  notFoundTitle: 'Esta página não está no Youbid',
+  notFoundTitle: 'Esta página não está no Bloub Board',
   notFoundLead: 'O quadro público, as estatísticas ao vivo e os recibos são as rotas que existem.',
   backToBoard: 'Voltar ao quadro',
 
-  rulesKicker: 'Como o Youbid funciona',
+  rulesKicker: 'Como o Bloub Board funciona',
   rulesTitle: 'A posição é o valor atual',
-  rulesLead: 'O Youbid é um ranking público. Você paga por um URL ou @handle. Abrir o pagamento não muda o quadro. A posição só se move depois de um pagamento verificado ser liquidado.',
+  rulesLead: 'O Bloub Board é um ranking público. Você paga por um URL ou @handle. Abrir o pagamento não muda o quadro. A posição só se move depois de um pagamento verificado ser liquidado.',
   rulesSections: [
     {
       heading: 'Pagamento',
@@ -157,7 +157,7 @@ export const pt: Messages = {
   rulesCanonicalStats: 'Estatísticas ao vivo',
 
   statsKicker: 'Ao vivo',
-  statsTitle: 'Estatísticas do Youbid',
+  statsTitle: 'Estatísticas do Bloub Board',
   statsLead: 'Tráfego público do quadro e pagamentos liquidados. Atualiza a cada poucos segundos. Segredos e tokens de dono ficam fora desta página.',
   updated: 'Atualizado {time}',
   statOnline: 'Visitantes online',
@@ -190,6 +190,6 @@ export const pt: Messages = {
   seeBoard: 'Ver o quadro',
   receiptKicker: 'Recibo',
   noCheckout: 'Pagamento não encontrado',
-  noCheckoutLead: 'Esse id de recibo não está no Youbid. Comece um novo lance a partir do quadro.',
-  backToYoubid: 'Voltar ao Youbid',
+  noCheckoutLead: 'Esse id de recibo não está no Bloub Board. Comece um novo lance a partir do quadro.',
+  backToYoubid: 'Voltar ao Bloub Board',
 }

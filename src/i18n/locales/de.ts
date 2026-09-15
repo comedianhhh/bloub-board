@@ -16,7 +16,7 @@ export const de: Messages = {
   navRules: 'Regeln',
   navGitHub: 'GitHub',
   navSite: 'Seite',
-  homeAria: 'Youbid-Startseite',
+  homeAria: 'Bloub Board-Startseite',
   language: 'Sprache',
   visitorsOnline: '{count} Besucher online',
   visitorsLast24h: '{count} in den letzten 24 Stunden',
@@ -63,7 +63,7 @@ export const de: Messages = {
   prev: 'Zurück',
   next: 'Weiter',
   takeoverLiveKicker: 'Erste-Seite-Übernahme · bezahlt',
-  takeoverOwnsUntil: 'Dieser Eintrag besitzt Youbid-Seite eins bis {time}.',
+  takeoverOwnsUntil: 'Dieser Eintrag besitzt Bloub Board-Seite eins bis {time}.',
   browseRegular: 'Zum normalen Leaderboard',
   emptyBoard: 'Noch keine Live-Einträge. Das erste verifizierte Gebot wird #1. Beträge fallen 3 % pro Tag.',
   passFor: '+{amount} vorbei',
@@ -76,7 +76,7 @@ export const de: Messages = {
   initialAmountAria: 'Bezahlter Betrag {amount}',
   onBoardUntil: 'auf dem Board bis {date}',
   clicks: '{count} Klicks',
-  defaultDescription: 'Auf Youbid bezahlt und verifiziert.',
+  defaultDescription: 'Auf Bloub Board bezahlt und verifiziert.',
   checkoutKicker: 'Lokaler Mock-Checkout',
   reviewBid: 'Zahlung prüfen',
   reviewSponsor: 'Sponsoring prüfen',
@@ -105,13 +105,13 @@ export const de: Messages = {
   errorCheckoutStart: 'Checkout konnte nicht starten.',
   errorMockSettle: 'Mock-Settlement fehlgeschlagen.',
 
-  notFoundTitle: 'Diese Seite ist nicht auf Youbid',
+  notFoundTitle: 'Diese Seite ist nicht auf Bloub Board',
   notFoundLead: 'Das öffentliche Board, Live-Statistik und Quittungen sind die vorhandenen Routen.',
   backToBoard: 'Zurück zum Board',
 
-  rulesKicker: 'So funktioniert Youbid',
+  rulesKicker: 'So funktioniert Bloub Board',
   rulesTitle: 'Der Rang ist der aktuelle Betrag',
-  rulesLead: 'Youbid ist ein öffentliches Leaderboard. Du zahlst für eine URL oder einen @handle. Checkout zu öffnen ändert das Board nicht. Der Rang bewegt sich erst nach einer verifizierten Zahlung.',
+  rulesLead: 'Bloub Board ist ein öffentliches Leaderboard. Du zahlst für eine URL oder einen @handle. Checkout zu öffnen ändert das Board nicht. Der Rang bewegt sich erst nach einer verifizierten Zahlung.',
   rulesSections: [
     {
       heading: 'Zahlung',
@@ -157,7 +157,7 @@ export const de: Messages = {
   rulesCanonicalStats: 'Live-Statistik',
 
   statsKicker: 'Live',
-  statsTitle: 'Youbid-Statistik',
+  statsTitle: 'Bloub Board-Statistik',
   statsLead: 'Öffentlicher Board-Traffic und abgerechnete Zahlungen. Aktualisiert alle paar Sekunden. Geheimnisse und Owner-Tokens bleiben von dieser Seite fern.',
   updated: 'Aktualisiert {time}',
   statOnline: 'Besucher online',
@@ -190,6 +190,6 @@ export const de: Messages = {
   seeBoard: 'Zum Board',
   receiptKicker: 'Quittung',
   noCheckout: 'Kein Checkout gefunden',
-  noCheckoutLead: 'Diese Quittungs-ID ist nicht auf Youbid. Starte ein neues Gebot vom Board.',
-  backToYoubid: 'Zurück zu Youbid',
+  noCheckoutLead: 'Diese Quittungs-ID ist nicht auf Bloub Board. Starte ein neues Gebot vom Board.',
+  backToYoubid: 'Zurück zu Bloub Board',
 }

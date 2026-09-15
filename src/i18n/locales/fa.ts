@@ -16,7 +16,7 @@ export const fa: Messages = {
   navRules: 'قوانین',
   navGitHub: 'GitHub',
   navSite: 'سایت',
-  homeAria: 'خانهٔ Youbid',
+  homeAria: 'خانهٔ Bloub Board',
   language: 'زبان',
   visitorsOnline: '{count} بازدیدکننده آنلاین',
   visitorsLast24h: '{count} در ۲۴ ساعت گذشته',
@@ -63,7 +63,7 @@ export const fa: Messages = {
   prev: 'قبلی',
   next: 'بعدی',
   takeoverLiveKicker: 'تصرف صفحهٔ اول · پرداخت‌شده',
-  takeoverOwnsUntil: 'این مورد تا {time} صفحهٔ اول Youbid را دارد.',
+  takeoverOwnsUntil: 'این مورد تا {time} صفحهٔ اول Bloub Board را دارد.',
   browseRegular: 'دیدن جدول معمولی',
   emptyBoard: 'هنوز مورد زنده‌ای نیست. اولین پیشنهاد تأییدشده #۱ می‌شود. مبلغ‌ها هر روز ۳٪ کم می‌شوند.',
   passFor: '+{amount} برای عبور',
@@ -76,7 +76,7 @@ export const fa: Messages = {
   initialAmountAria: 'مبلغ پرداخت‌شده {amount}',
   onBoardUntil: 'روی تابلو تا {date}',
   clicks: '{count} کلیک',
-  defaultDescription: 'در Youbid پرداخت و تأیید شده.',
+  defaultDescription: 'در Bloub Board پرداخت و تأیید شده.',
   checkoutKicker: 'پرداخت آزمایشی محلی',
   reviewBid: 'بازبینی پرداخت',
   reviewSponsor: 'بازبینی حمایت',
@@ -105,13 +105,13 @@ export const fa: Messages = {
   errorCheckoutStart: 'پرداخت شروع نشد.',
   errorMockSettle: 'تسویهٔ آزمایشی شکست خورد.',
 
-  notFoundTitle: 'این صفحه در Youbid نیست',
+  notFoundTitle: 'این صفحه در Bloub Board نیست',
   notFoundLead: 'تابلوی عمومی، آمار زنده و رسیدها مسیرهایی هستند که وجود دارند.',
   backToBoard: 'بازگشت به تابلو',
 
-  rulesKicker: 'Youbid چگونه کار می‌کند',
+  rulesKicker: 'Bloub Board چگونه کار می‌کند',
   rulesTitle: 'رتبه همان مبلغ فعلی است',
-  rulesLead: 'Youbid یک جدول رده‌بندی عمومی است. برای یک نشانی یا @handle پول می‌دهید. باز کردن پرداخت تابلو را عوض نمی‌کند. رتبه فقط بعد از تسویهٔ پرداخت تأییدشده جابه‌جا می‌شود.',
+  rulesLead: 'Bloub Board یک جدول رده‌بندی عمومی است. برای یک نشانی یا @handle پول می‌دهید. باز کردن پرداخت تابلو را عوض نمی‌کند. رتبه فقط بعد از تسویهٔ پرداخت تأییدشده جابه‌جا می‌شود.',
   rulesSections: [
     {
       heading: 'پیشنهاد',
@@ -157,7 +157,7 @@ export const fa: Messages = {
   rulesCanonicalStats: 'آمار زنده',
 
   statsKicker: 'زنده',
-  statsTitle: 'آمار Youbid',
+  statsTitle: 'آمار Bloub Board',
   statsLead: 'ترافیک عمومی تابلو و پرداخت‌های تسویه‌شده. هر چند ثانیه به‌روز می‌شود. رازها و توکن مالک در این صفحه نیستند.',
   updated: 'به‌روز شده {time}',
   statOnline: 'بازدیدکننده آنلاین',
@@ -190,6 +190,6 @@ export const fa: Messages = {
   seeBoard: 'دیدن تابلو',
   receiptKicker: 'رسید',
   noCheckout: 'پرداختی پیدا نشد',
-  noCheckoutLead: 'این شناسهٔ رسید در Youbid نیست. از تابلو یک پیشنهاد تازه شروع کنید.',
-  backToYoubid: 'بازگشت به Youbid',
+  noCheckoutLead: 'این شناسهٔ رسید در Bloub Board نیست. از تابلو یک پیشنهاد تازه شروع کنید.',
+  backToYoubid: 'بازگشت به Bloub Board',
 }

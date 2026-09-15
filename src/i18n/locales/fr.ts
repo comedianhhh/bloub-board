@@ -16,7 +16,7 @@ export const fr: Messages = {
   navRules: 'Règles',
   navGitHub: 'GitHub',
   navSite: 'Site',
-  homeAria: 'Accueil Youbid',
+  homeAria: 'Accueil Bloub Board',
   language: 'Langue',
   visitorsOnline: '{count} visiteurs en ligne',
   visitorsLast24h: '{count} sur les 24 dernières heures',
@@ -63,7 +63,7 @@ export const fr: Messages = {
   prev: 'Préc.',
   next: 'Suiv.',
   takeoverLiveKicker: 'Première page · payé',
-  takeoverOwnsUntil: 'Cette fiche occupe la première page de Youbid jusqu’à {time}.',
+  takeoverOwnsUntil: 'Cette fiche occupe la première page de Bloub Board jusqu’à {time}.',
   browseRegular: 'Voir le classement habituel',
   emptyBoard: 'Aucune fiche en ligne. Le premier paiement vérifié prend la #1. Les montants baissent de 3 % par jour.',
   passFor: '+{amount} pour passer',
@@ -76,7 +76,7 @@ export const fr: Messages = {
   initialAmountAria: 'Montant payé {amount}',
   onBoardUntil: 'sur le tableau jusqu’au {date}',
   clicks: '{count} clics',
-  defaultDescription: 'Payé et vérifié sur Youbid.',
+  defaultDescription: 'Payé et vérifié sur Bloub Board.',
   checkoutKicker: 'Paiement local simulé',
   reviewBid: 'Vérifier le paiement',
   reviewSponsor: 'Vérifier le sponsoring',
@@ -105,13 +105,13 @@ export const fr: Messages = {
   errorCheckoutStart: 'Le paiement n’a pas pu démarrer.',
   errorMockSettle: 'Le règlement simulé a échoué.',
 
-  notFoundTitle: 'Cette page n’est pas sur Youbid',
+  notFoundTitle: 'Cette page n’est pas sur Bloub Board',
   notFoundLead: 'Le tableau public, les stats en direct et les reçus sont les routes qui existent.',
   backToBoard: 'Retour au tableau',
 
-  rulesKicker: 'Comment Youbid fonctionne',
+  rulesKicker: 'Comment Bloub Board fonctionne',
   rulesTitle: 'Le rang, c’est le montant actuel',
-  rulesLead: 'Youbid est un classement public. Vous payez pour une URL ou un @handle. Ouvrir le paiement ne change rien au tableau. Le rang bouge seulement après un paiement vérifié.',
+  rulesLead: 'Bloub Board est un classement public. Vous payez pour une URL ou un @handle. Ouvrir le paiement ne change rien au tableau. Le rang bouge seulement après un paiement vérifié.',
   rulesSections: [
     {
       heading: 'Paiement',
@@ -157,7 +157,7 @@ export const fr: Messages = {
   rulesCanonicalStats: 'Stats en direct',
 
   statsKicker: 'En direct',
-  statsTitle: 'Stats Youbid',
+  statsTitle: 'Stats Bloub Board',
   statsLead: 'Trafic public du tableau et paiements réglés. Mise à jour toutes les quelques secondes. Les secrets et jetons propriétaire restent hors de cette page.',
   updated: 'Mis à jour {time}',
   statOnline: 'Visiteurs en ligne',
@@ -190,6 +190,6 @@ export const fr: Messages = {
   seeBoard: 'Voir le tableau',
   receiptKicker: 'Reçu',
   noCheckout: 'Aucun paiement trouvé',
-  noCheckoutLead: 'Cet identifiant de reçu n’est pas sur Youbid. Relancez une enchère depuis le tableau.',
-  backToYoubid: 'Retour à Youbid',
+  noCheckoutLead: 'Cet identifiant de reçu n’est pas sur Bloub Board. Relancez une enchère depuis le tableau.',
+  backToYoubid: 'Retour à Bloub Board',
 }

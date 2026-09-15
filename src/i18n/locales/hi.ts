@@ -16,7 +16,7 @@ export const hi: Messages = {
   navRules: 'नियम',
   navGitHub: 'GitHub',
   navSite: 'साइट',
-  homeAria: 'Youbid होम',
+  homeAria: 'Bloub Board होम',
   language: 'भाषा',
   visitorsOnline: '{count} विज़िटर ऑनलाइन',
   visitorsLast24h: 'पिछले 24 घंटे में {count}',
@@ -63,7 +63,7 @@ export const hi: Messages = {
   prev: 'पिछला',
   next: 'अगला',
   takeoverLiveKicker: 'पहले पेज का टेकओवर · भुगतान हुआ',
-  takeoverOwnsUntil: 'यह लिस्टिंग {time} तक Youbid का पहला पेज रखती है.',
+  takeoverOwnsUntil: 'यह लिस्टिंग {time} तक Bloub Board का पहला पेज रखती है.',
   browseRegular: 'सामान्य लीडरबोर्ड देखें',
   emptyBoard: 'अभी कोई लाइव लिस्टिंग नहीं. पहली सत्यापित बोली #1 लेती है. राशि हर दिन 3% गिरती है.',
   passFor: '+{amount} पार करें',
@@ -76,7 +76,7 @@ export const hi: Messages = {
   initialAmountAria: 'भुगतान की गई राशि {amount}',
   onBoardUntil: '{date} तक बोर्ड पर',
   clicks: '{count} क्लिक',
-  defaultDescription: 'Youbid पर भुगतान और सत्यापित.',
+  defaultDescription: 'Bloub Board पर भुगतान और सत्यापित.',
   checkoutKicker: 'लोकल मॉक चेकआउट',
   reviewBid: 'भुगतान जाँचें',
   reviewSponsor: 'प्रायोजन जाँचें',
@@ -105,13 +105,13 @@ export const hi: Messages = {
   errorCheckoutStart: 'चेकआउट शुरू नहीं हो सका.',
   errorMockSettle: 'मॉक सेटलमेंट असफल रहा.',
 
-  notFoundTitle: 'यह पेज Youbid पर नहीं है',
+  notFoundTitle: 'यह पेज Bloub Board पर नहीं है',
   notFoundLead: 'सार्वजनिक बोर्ड, लाइव आँकड़े और रसीदें ही मौजूद रूट हैं.',
   backToBoard: 'बोर्ड पर वापस',
 
-  rulesKicker: 'Youbid कैसे काम करता है',
+  rulesKicker: 'Bloub Board कैसे काम करता है',
   rulesTitle: 'रैंक मौजूदा राशि है',
-  rulesLead: 'Youbid एक सार्वजनिक लीडरबोर्ड है. आप एक URL या @handle के लिए भुगतान करते हैं. चेकआउट खोलने से बोर्ड नहीं बदलता. रैंक तभी चलती है जब सत्यापित भुगतान सेटल हो.',
+  rulesLead: 'Bloub Board एक सार्वजनिक लीडरबोर्ड है. आप एक URL या @handle के लिए भुगतान करते हैं. चेकआउट खोलने से बोर्ड नहीं बदलता. रैंक तभी चलती है जब सत्यापित भुगतान सेटल हो.',
   rulesSections: [
     {
       heading: 'भुगतान',
@@ -157,7 +157,7 @@ export const hi: Messages = {
   rulesCanonicalStats: 'लाइव आँकड़े',
 
   statsKicker: 'लाइव',
-  statsTitle: 'Youbid आँकड़े',
+  statsTitle: 'Bloub Board आँकड़े',
   statsLead: 'सार्वजनिक बोर्ड ट्रैफ़िक और सेटल भुगतान. हर कुछ सेकंड अपडेट. सीक्रेट और ओनर टोकन इस पेज पर नहीं आते.',
   updated: '{time} अपडेट',
   statOnline: 'ऑनलाइन विज़िटर',
@@ -190,6 +190,6 @@ export const hi: Messages = {
   seeBoard: 'बोर्ड देखें',
   receiptKicker: 'रसीद',
   noCheckout: 'कोई चेकआउट नहीं मिला',
-  noCheckoutLead: 'वह रसीद id Youbid पर नहीं है. बोर्ड से नई बोली शुरू करें.',
-  backToYoubid: 'Youbid पर वापस',
+  noCheckoutLead: 'वह रसीद id Bloub Board पर नहीं है. बोर्ड से नई बोली शुरू करें.',
+  backToYoubid: 'Bloub Board पर वापस',
 }

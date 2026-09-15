@@ -70,7 +70,7 @@ export function toPublicListing(
   return {
     id: listing.id,
     domain: listing.displayName,
-    description: listing.description || 'Paid and verified on Youbid.',
+    description: listing.description || 'Paid and verified on Bloub Board.',
     href: `/go/${listing.id}`,
     identityInput: listing.targetUrl,
     image: listing.imageUrl || faviconUrlForTarget(listing.targetUrl),

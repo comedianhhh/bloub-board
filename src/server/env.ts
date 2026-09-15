@@ -63,7 +63,7 @@ export function isLocalDevelopment(config: ProductionConfig = readProductionConf
 
 /** Absolute origin without a trailing slash, for canonical links in machine-readable routes. */
 export function siteOrigin(config: ProductionConfig = readProductionConfig()): string {
-  return (config.appUrl ?? 'https://youbid.lol').replace(/\/+$/, '')
+  return (config.appUrl ?? 'https://bloub-board.alan996.workers.dev').replace(/\/+$/, '')
 }
 
 export function publicCheckoutConfig(config: ProductionConfig = readProductionConfig()): PublicCheckoutConfig {

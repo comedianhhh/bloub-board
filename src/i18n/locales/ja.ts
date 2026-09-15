@@ -16,7 +16,7 @@ export const ja: Messages = {
   navRules: 'ルール',
   navGitHub: 'GitHub',
   navSite: 'サイト',
-  homeAria: 'Youbid ホーム',
+  homeAria: 'Bloub Board ホーム',
   language: '言語',
   visitorsOnline: '{count} 人がオンライン',
   visitorsLast24h: '過去24時間で {count} 人',
@@ -63,7 +63,7 @@ export const ja: Messages = {
   prev: '前へ',
   next: '次へ',
   takeoverLiveKicker: '1ページ目テイクオーバー · 支払い済み',
-  takeoverOwnsUntil: 'この掲載は {time} まで Youbid の1ページ目を占有します。',
+  takeoverOwnsUntil: 'この掲載は {time} まで Bloub Board の1ページ目を占有します。',
   browseRegular: '通常のリーダーボードを見る',
   emptyBoard: 'まだ公開掲載はありません。最初の確認済み入札が #1 になります。金額は1日3%下がります。',
   passFor: '+{amount} で越える',
@@ -76,7 +76,7 @@ export const ja: Messages = {
   initialAmountAria: '支払い金額 {amount}',
   onBoardUntil: '{date} まで掲載',
   clicks: '{count} クリック',
-  defaultDescription: 'Youbid で支払い済み・確認済み。',
+  defaultDescription: 'Bloub Board で支払い済み・確認済み。',
   checkoutKicker: 'ローカルモック決済',
   reviewBid: '支払いを確認',
   reviewSponsor: 'スポンサーを確認',
@@ -105,13 +105,13 @@ export const ja: Messages = {
   errorCheckoutStart: 'チェックアウトを開始できませんでした。',
   errorMockSettle: 'モック決済に失敗しました。',
 
-  notFoundTitle: 'このページは Youbid にありません',
+  notFoundTitle: 'このページは Bloub Board にありません',
   notFoundLead: '公開ボード、ライブ統計、領収書だけが存在するルートです。',
   backToBoard: 'ボードに戻る',
 
-  rulesKicker: 'Youbid の仕組み',
+  rulesKicker: 'Bloub Board の仕組み',
   rulesTitle: '順位は現在の金額',
-  rulesLead: 'Youbid は公開リーダーボードです。URL または @handle に対して支払います。チェックアウトを開いてもボードは動きません。確認済みの支払いが確定して初めて順位が変わります。',
+  rulesLead: 'Bloub Board は公開リーダーボードです。URL または @handle に対して支払います。チェックアウトを開いてもボードは動きません。確認済みの支払いが確定して初めて順位が変わります。',
   rulesSections: [
     {
       heading: '支払い',
@@ -157,7 +157,7 @@ export const ja: Messages = {
   rulesCanonicalStats: 'ライブ統計',
 
   statsKicker: 'ライブ',
-  statsTitle: 'Youbid 統計',
+  statsTitle: 'Bloub Board 統計',
   statsLead: '公開ボードのトラフィックと確定済み支払い。数秒ごとに更新します。秘密情報と所有者トークンはこのページに出しません。',
   updated: '{time} 更新',
   statOnline: 'オンラインの訪問者',
@@ -190,6 +190,6 @@ export const ja: Messages = {
   seeBoard: 'ボードを見る',
   receiptKicker: '領収書',
   noCheckout: 'チェックアウトが見つかりません',
-  noCheckoutLead: 'その領収書 ID は Youbid にありません。ボードから新しい入札を始めてください。',
-  backToYoubid: 'Youbid に戻る',
+  noCheckoutLead: 'その領収書 ID は Bloub Board にありません。ボードから新しい入札を始めてください。',
+  backToYoubid: 'Bloub Board に戻る',
 }
