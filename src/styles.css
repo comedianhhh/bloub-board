@@ -73,6 +73,16 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .mascot svg, .listing-face svg { overflow: visible; }
 
+.listing-art { position: relative; display: inline-block; flex: none; width: 44px; height: 44px; }
+.listing-art img {
+  display: block; width: 44px; height: 44px; object-fit: cover;
+  border-radius: 10px; background: var(--paper-raised); border: 1px solid var(--hair);
+}
+.listing-art-face {
+  position: absolute; left: -7px; bottom: -7px;
+  display: inline-flex; padding: 2px; border-radius: 999px; background: var(--paper);
+}
+
 /* ---- header ---- */
 .site-header {
   display: flex;

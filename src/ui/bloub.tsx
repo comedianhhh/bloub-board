@@ -1,5 +1,5 @@
 import { BloubBot, type StateId } from 'bloub-react'
-import { useEffect, useState } from 'react'
+import { type ReactNode, useEffect, useState } from 'react'
 
 /**
  * Every listing gets a face: shape, ink and rest expression come from a hash of
@@ -78,6 +78,22 @@ export function ListingFace(props: {
         label=""
         style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none' }}
       />
+    </span>
+  )
+}
+
+/**
+ * A listing's picture with its face pinned to the bottom-left corner. Without
+ * a picture (or once it fails to load) the face stands in at full size.
+ */
+export function ListingArt(props: { image: string | null; face: ReactNode }) {
+  const [broken, setBroken] = useState(false)
+  useEffect(() => setBroken(false), [props.image])
+  if (!props.image || broken) return <>{props.face}</>
+  return (
+    <span className="listing-art">
+      <img src={props.image} alt="" width="44" height="44" loading="lazy" onError={() => setBroken(true)} />
+      <span className="listing-art-face">{props.face}</span>
     </span>
   )
 }

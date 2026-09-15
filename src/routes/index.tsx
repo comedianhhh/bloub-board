@@ -26,7 +26,7 @@ import { interpolate } from '../i18n/locale.ts'
 import { en } from '../i18n/locales/en.ts'
 import { resolveRequestLocale } from '../server/locale.ts'
 import { resolveVisitorKey } from '../server/visitor-cookie.ts'
-import { ListingFace, Mascot, type MascotMood, useRaisePulse } from '../ui/bloub.tsx'
+import { ListingArt, ListingFace, Mascot, type MascotMood, useRaisePulse } from '../ui/bloub.tsx'
 import { SiteFooter, SiteHeader } from '../ui/site-chrome.tsx'
 
 const loadHome = createServerFn({ method: 'GET' }).handler(async () => {
@@ -428,31 +428,24 @@ function Home() {
           {showListingMeta ? (
             <div className="listing-meta">
               <div className="resolved-identity">
-                <ListingFace
-                  identity={normalizedIdentity.ok ? normalizedIdentity.identity.canonicalKey : identityInput}
-                  size={44}
-                  rank={previewRank}
-                  settledAgoMs={0}
-                  daysLeft={90}
-                  fading={false}
-                  live
+                <ListingArt
+                  image={previewLogo || null}
+                  face={
+                    <ListingFace
+                      identity={normalizedIdentity.ok ? normalizedIdentity.identity.canonicalKey : identityInput}
+                      size={previewLogo ? 22 : 44}
+                      rank={previewRank}
+                      settledAgoMs={0}
+                      daysLeft={90}
+                      fading={false}
+                      live
+                    />
+                  }
                 />
                 <div>
                   <strong>{listingTitle || (normalizedIdentity.ok ? normalizedIdentity.identity.display : '')}</strong>
                   {listingDescription ? <p>{listingDescription}</p> : null}
                 </div>
-                {previewLogo ? (
-                  <img
-                    src={previewLogo}
-                    alt=""
-                    width="20"
-                    height="20"
-                    className="resolved-favicon"
-                    onError={(event) => {
-                      event.currentTarget.hidden = true
-                    }}
-                  />
-                ) : null}
               </div>
               <label>
                 <span>{copy.title}</span>
@@ -556,14 +549,19 @@ function Home() {
                   }}
                 >
                   <span className="listing-rank num">{rank}</span>
-                  <ListingFace
-                    identity={listingIdentity(listing)}
-                    size={44}
-                    rank={rank}
-                    settledAgoMs={settledAgoMs}
-                    daysLeft={runway.daysLeft}
-                    fading={runway.fading}
-                    live={liveFace === listing.id}
+                  <ListingArt
+                    image={listing.image}
+                    face={
+                      <ListingFace
+                        identity={listingIdentity(listing)}
+                        size={listing.image ? 22 : 44}
+                        rank={rank}
+                        settledAgoMs={settledAgoMs}
+                        daysLeft={runway.daysLeft}
+                        fading={runway.fading}
+                        live={liveFace === listing.id}
+                      />
+                    }
                   />
                   <div className="listing-copy">
                     <a href={listing.href} target="_blank" rel="sponsored noopener noreferrer">
