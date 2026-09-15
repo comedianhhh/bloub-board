@@ -1,6 +1,18 @@
 import type { Messages } from '../types.ts'
 
 export const ja: Messages = {
+  heroTitle: 'お金を払って載る公開ボード。',
+  heroLead: 'あなたのプロダクトに1ドル以上を入札。順位は入札が今日いくらの価値かで決まり、金額は毎日',
+  heroLeadEmphasis: '3% 下がる',
+  boardTitle: 'ボード',
+  liveCount: '{count} 件掲載中',
+  claimRank: '{amount} で {rank} 位を取る',
+  takeoverTitle: '1ページ目を3時間占有する',
+  takeoverLead: '前回の占有終了時の首位の4倍から始まり、1日で1.2倍まで下がります。',
+  takeoverNow: '現在 {amount}。',
+  boardFooter: '有料掲載。現在の確認済み入札額で順位付け。金額は毎日3%下がります。誰でも掲載に追加入金できますが、文面を変えられるのは所有者だけです。',
+  navStats: '統計',
+  droppingSoon: 'まもなく掲載終了',
   navRules: 'ルール',
   navGitHub: 'GitHub',
   navSite: 'サイト',

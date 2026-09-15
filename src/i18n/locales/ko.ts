@@ -1,6 +1,18 @@
 import type { Messages } from '../types.ts'
 
 export const ko: Messages = {
+  heroTitle: '돈을 내야 오를 수 있는 공개 보드.',
+  heroLead: '제품에 1달러 이상 입찰하세요. 순위는 오늘 입찰 가치로 정해지고, 모든 금액은 매일',
+  heroLeadEmphasis: '3%씩 하락',
+  boardTitle: '보드',
+  liveCount: '{count}개 게시 중',
+  claimRank: '{amount}로 {rank}위 차지',
+  takeoverTitle: '첫 페이지를 3시간 동안 차지하기',
+  takeoverLead: '마지막 점유 종료 시 1위의 4배에서 시작해 하루 동안 1.2배까지 내려갑니다.',
+  takeoverNow: '지금 {amount}.',
+  boardFooter: '유료 게재, 현재 확인된 입찰액 순. 금액은 매일 3% 하락합니다. 누구나 게시물에 돈을 더할 수 있지만 문구는 소유자만 바꿀 수 있습니다.',
+  navStats: '통계',
+  droppingSoon: '곧 내려감',
   navRules: '규칙',
   navGitHub: 'GitHub',
   navSite: '사이트',

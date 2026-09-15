@@ -14,6 +14,9 @@ importers:
       '@tanstack/react-start':
         specifier: latest
         version: 1.168.48(esbuild@0.28.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(rolldown@1.2.5)(vite@8.2.2(@types/node@22.20.1)(esbuild@0.28.1)(jiti@2.7.0))
+      bloub-react:
+        specifier: file:..\bloub-react
+        version: file:../bloub-react(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react:
         specifier: ^19.2.0
         version: 19.2.8
@@ -843,6 +846,12 @@ packages:
 
   blake3-wasm@2.1.5:
     resolution: {integrity: sha512-F1+K8EbfOZE49dtoPtmxUQrpXaBIl3ICvasLh+nJta0xkz+9kF/7uet9fLnwKqhDrmj6g+6K3Tw9yQPUg2ka5g==}
+
+  bloub-react@file:../bloub-react:
+    resolution: {directory: ../bloub-react, type: directory}
+    peerDependencies:
+      react: '>=18'
+      react-dom: '>=18'
 
   browserslist@4.28.8:
     resolution: {integrity: sha512-V2NpofLblG64mfOtSgDhOJESZEGogzDMBv/q+W6oc4LXWP/q75eOXoOaaOu1EOadB9U4Bwx/e0yzbvwKH8zalA==}
@@ -2076,6 +2085,11 @@ snapshots:
   baseline-browser-mapping@2.11.16: {}
 
   blake3-wasm@2.1.5: {}
+
+  bloub-react@file:../bloub-react(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
+    dependencies:
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
 
   browserslist@4.28.8:
     dependencies:

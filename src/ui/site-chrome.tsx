@@ -1,43 +1,26 @@
 import { Link } from '@tanstack/react-router'
 
-import { localeHtmlLang, useLocale } from '../i18n/context.tsx'
-import { formatCount } from '../i18n/format.ts'
-import { interpolate } from '../i18n/locale.ts'
+import { useLocale } from '../i18n/context.tsx'
+import { en } from '../i18n/locales/en.ts'
+import { Mascot } from './bloub.tsx'
 import { LocaleSwitcher } from './locale-switcher.tsx'
 
-export function SiteHeader(input: {
-  visitorsOnline: number
-  visitorsLast24h: number
-}) {
-  const { copy, locale } = useLocale()
-  const lang = localeHtmlLang(locale)
+export function SiteHeader() {
+  const { copy } = useLocale()
   return (
     <header className="site-header">
-      <div className="site-header-bar">
-        <Link className="wordmark" to="/" aria-label={copy.homeAria}>
-          <img className="wordmark-logo" src="/logo.avif" alt="" width="50" height="50" />
-          youbid<span>.lol</span>
-        </Link>
-        <nav className="header-nav" aria-label={copy.navSite}>
-          <Link to="/rules">{copy.navRules}</Link>
-          <a href="https://github.com/Go7hic/youbid" target="_blank" rel="noreferrer">
-            {copy.navGitHub}
-          </a>
-          <LocaleSwitcher />
-        </nav>
-      </div>
-      <div className="live-pill" aria-live="polite">
-        <span className="live-dot" />
-        <strong>
-          {interpolate(copy.visitorsOnline, { count: formatCount(input.visitorsOnline, lang) })}
-        </strong>
-        <span>
-          · {interpolate(copy.visitorsLast24h, { count: formatCount(input.visitorsLast24h, lang) })} ·{' '}
-        </span>
-        <Link className="stats-link" to="/stats" target="_blank" rel="noreferrer">
-          {copy.seeStats}
-        </Link>
-      </div>
+      <Link className="wordmark" to="/" aria-label={copy.homeAria}>
+        <Mascot mood="idle" size={30} follow={false} frozenAt={0.3} />
+        <span>youbid</span>
+      </Link>
+      <nav className="header-nav" aria-label={copy.navSite}>
+        <Link to="/rules">{copy.navRules}</Link>
+        <Link to="/stats">{copy.navStats ?? en.navStats}</Link>
+        <a href="https://github.com/Go7hic/youbid" target="_blank" rel="noreferrer">
+          {copy.navGitHub}
+        </a>
+        <LocaleSwitcher />
+      </nav>
     </header>
   )
 }
@@ -45,11 +28,11 @@ export function SiteHeader(input: {
 export function SiteFooter() {
   const { copy } = useLocale()
   return (
-    <footer>
-      <p>{copy.footerBlurb}</p>
+    <footer className="site-footer">
+      <p>{copy.boardFooter ?? en.boardFooter}</p>
       <nav className="footer-nav">
+        <Link to="/rules">{copy.navRules}</Link>
         <Link to="/stats">{copy.footerStats}</Link>
-        <a href="https://youbid.lol">youbid.lol</a>
       </nav>
     </footer>
   )

@@ -5,6 +5,20 @@ export interface RulesSectionCopy {
 }
 
 export interface Messages {
+  /** Redesign copy. */
+  heroTitle: string
+  heroLead: string
+  heroLeadEmphasis: string
+  boardTitle: string
+  liveCount: string
+  claimRank: string
+  takeoverTitle: string
+  takeoverLead: string
+  takeoverNow: string
+  boardFooter: string
+  navStats: string
+  droppingSoon: string
+
   navRules: string
   navGitHub: string
   navSite: string

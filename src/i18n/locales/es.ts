@@ -1,6 +1,18 @@
 import type { Messages } from '../types.ts'
 
 export const es: Messages = {
+  heroTitle: 'Un tablón público en el que se paga por estar.',
+  heroLead: 'Puja un dólar o más por tu producto. El puesto sigue lo que vale tu puja hoy: cada importe baja un',
+  heroLeadEmphasis: '3 % al día',
+  boardTitle: 'Tablón',
+  liveCount: '{count} en vivo',
+  claimRank: 'Ocupar el puesto {rank} por {amount}',
+  takeoverTitle: 'Ocupa la primera página durante tres horas',
+  takeoverLead: 'Empieza en 4× el líder tras la última toma y baja a 1,2× en un día.',
+  takeoverNow: 'Ahora {amount}.',
+  boardFooter: 'Colocación de pago, ordenada por la puja verificada actual. Los importes bajan un 3 % al día. Cualquiera puede añadir dinero a un anuncio; solo su dueño cambia el texto.',
+  navStats: 'Estadísticas',
+  droppingSoon: 'saldrá pronto',
   navRules: 'Reglas',
   navGitHub: 'GitHub',
   navSite: 'Sitio',

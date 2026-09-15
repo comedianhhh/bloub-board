@@ -26,6 +26,7 @@ import { interpolate } from '../i18n/locale.ts'
 import { en } from '../i18n/locales/en.ts'
 import { resolveRequestLocale } from '../server/locale.ts'
 import { resolveVisitorKey } from '../server/visitor-cookie.ts'
+import { ListingFace, Mascot, type MascotMood, useRaisePulse } from '../ui/bloub.tsx'
 import { SiteFooter, SiteHeader } from '../ui/site-chrome.tsx'
 
 const loadHome = createServerFn({ method: 'GET' }).handler(async () => {
@@ -100,6 +101,8 @@ function Home() {
   const [busy, setBusy] = useState(false)
   const [takeoverTick, setTakeoverTick] = useState(() => Date.now())
   const [passTarget, setPassTarget] = useState<{ rank: number; amountCents: number } | null>(null)
+  const [raising, pulseRaise] = useRaisePulse()
+  const [liveFace, setLiveFace] = useState<string | null>(null)
 
   const board = boardPage({ listings: rankedListings, takeover: data.takeover, requestedPage: page })
   const previewRank = projectedRank(amountCents, rankedListings)
@@ -236,6 +239,22 @@ function Home() {
   const takeoverAmountLive = takeoverPrice(leaderAmount, takeoverIdle)
   const nextTakeoverDropMs = msUntilNextTakeoverDrop(leaderAmount, takeoverIdle)
   const payLabel = busy ? copy.working : takeover ? copy.takeOver : sponsoring ? copy.sponsor : copy.bid
+  // The mascot shows what the board is doing, in order of what matters most.
+  const mascotMood: MascotMood = identityError
+    ? 'error'
+    : checkoutOpen
+      ? 'waiting'
+      : busy || resolving
+        ? 'thinking'
+        : raising
+          ? 'raising'
+          : takeover
+            ? 'takeover'
+            : 'idle'
+  const listingIdentity = (listing: Listing) => {
+    const parsed = normalizeIdentity(listing.identityInput)
+    return parsed.ok ? parsed.identity.canonicalKey : listing.identityInput
+  }
 
   function scrollToBidForm() {
     bidFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
@@ -327,177 +346,178 @@ function Home() {
 
   return (
     <main className="site-shell">
-      <SiteHeader visitorsOnline={data.visitorsOnline} visitorsLast24h={data.visitorsLast24h} />
+      <SiteHeader />
 
-      <section className="intro" id="top">
-        <p className="tagline">
-          {copy.tagline} <strong>{copy.taglineEmphasis}</strong>
+      <section className="hero" id="top">
+        <Mascot mood={mascotMood} />
+        <h1 className="hero-title">{copy.heroTitle ?? en.heroTitle}</h1>
+        <p className="hero-lead">
+          {copy.heroLead ?? en.heroLead} <span className="decay">{copy.heroLeadEmphasis ?? en.heroLeadEmphasis}</span>. {copy.tagline}
         </p>
+      </section>
 
-        <section className="bid-panel" ref={bidFormRef} aria-labelledby="bid-heading">
-          <div className="bid-title-row">
-            <h1 id="bid-heading">
-              {takeover ? copy.takePageOneFor : interpolate(copy.claimRankFor, { rank: previewRank })}
-            </h1>
+      <section className="bid-panel" ref={bidFormRef} aria-labelledby="bid-heading">
+        <div className="bid-title-row">
+          <h2 id="bid-heading">
+            {takeover ? copy.takePageOneFor : interpolate(copy.claimRankFor, { rank: previewRank })}
+          </h2>
+          <div className="bid-stepper">
             <button
               className="step-button"
               type="button"
               aria-label={copy.decreaseBid}
               onClick={() => setAmountCents((amount) => Math.max(MINIMUM_BID_CENTS, amount - BID_STEP_CENTS))}
             >
-              −
+              <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M3.5 8h9" /></svg>
             </button>
-            <strong className="bid-amount">{formatUsd(amountCents)}</strong>
+            <strong className="bid-amount num">{formatUsd(amountCents)}</strong>
             <button
               className="step-button"
               type="button"
               aria-label={copy.increaseBid}
-              onClick={() => setAmountCents((amount) => amount + BID_STEP_CENTS)}
+              onClick={() => {
+                setAmountCents((amount) => amount + BID_STEP_CENTS)
+                pulseRaise()
+              }}
             >
-              +
+              <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M3.5 8h9M8 3.5v9" /></svg>
             </button>
           </div>
-          <p className="bid-explainer">
-            {takeover ? copy.explainerTakeover : copy.explainerBid}
-          </p>
+        </div>
 
-          <form className="bid-composer-wrap" onSubmit={openCheckout} noValidate>
-            <div className="bid-composer">
-              <div className="bid-form">
-                <label className="identity-field">
-                  <span className="input-prefix" aria-hidden="true">
-                    {identityLogo ? (
-                      <img src={identityLogo} alt="" width="16" height="16" />
-                    ) : (
-                      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.4">
-                        <circle cx="8" cy="8" r="6.2" />
-                        <path d="M2 8h12M8 2c1.8 1.8 2.7 3.8 2.7 6S9.8 12.2 8 14C6.2 12.2 5.3 10.2 5.3 8S6.2 3.8 8 2Z" />
-                      </svg>
-                    )}
-                  </span>
-                  <span className="sr-only">{copy.identityLabel}</span>
-                  <input
-                    value={identityInput}
-                    onChange={(event) => applyIdentityInput(event.target.value)}
-                    onBlur={(event) => void resolveIdentityFields(event.target.value)}
-                    placeholder={copy.identityPlaceholder}
-                    aria-invalid={Boolean(identityError)}
-                    aria-describedby="identity-help identity-error"
-                    autoComplete="url"
+        <form className="bid-form" onSubmit={openCheckout} noValidate>
+          <div className="bid-row">
+            <label className="identity-field">
+              <span className="sr-only">{copy.identityLabel}</span>
+              <input
+                value={identityInput}
+                onChange={(event) => applyIdentityInput(event.target.value)}
+                onBlur={(event) => void resolveIdentityFields(event.target.value)}
+                placeholder={copy.identityPlaceholder}
+                aria-invalid={Boolean(identityError)}
+                aria-describedby="identity-help identity-error"
+                autoComplete="url"
+              />
+            </label>
+            <button className="primary-button" type="submit" disabled={!canCheckout}>
+              {payLabel} {busy ? null : <span className="num">{formatUsd(amountCents)}</span>}
+              <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+            </button>
+          </div>
+          <p className="identity-help" id="identity-help">
+            {data.checkout.mode === 'unavailable'
+              ? copy.helpUnavailable
+              : resolving
+                ? copy.helpResolving
+                : resolveFailed
+                  ? copy.helpResolveFailed
+                  : sponsoring
+                    ? copy.helpSponsor
+                    : passTarget
+                      ? interpolate(copy.helpPass, {
+                          amount: formatUsd(passTarget.amountCents),
+                          rank: passTarget.rank,
+                        })
+                      : takeover
+                        ? copy.explainerTakeover
+                        : copy.explainerBid}
+          </p>
+          {data.checkout.turnstileSiteKey ? (
+            <div className="cf-turnstile" data-sitekey={data.checkout.turnstileSiteKey} />
+          ) : null}
+          {showListingMeta ? (
+            <div className="listing-meta">
+              <div className="resolved-identity">
+                <ListingFace
+                  identity={normalizedIdentity.ok ? normalizedIdentity.identity.canonicalKey : identityInput}
+                  size={44}
+                  rank={previewRank}
+                  settledAgoMs={0}
+                  daysLeft={90}
+                  fading={false}
+                  live
+                />
+                <div>
+                  <strong>{listingTitle || (normalizedIdentity.ok ? normalizedIdentity.identity.display : '')}</strong>
+                  {listingDescription ? <p>{listingDescription}</p> : null}
+                </div>
+                {previewLogo ? (
+                  <img
+                    src={previewLogo}
+                    alt=""
+                    width="20"
+                    height="20"
+                    className="resolved-favicon"
+                    onError={(event) => {
+                      event.currentTarget.hidden = true
+                    }}
                   />
-                </label>
-                <button className="primary-button" type="submit" disabled={!canCheckout}>
-                  {payLabel}
-                </button>
-              </div>
-              <p className="identity-help" id="identity-help">
-                {data.checkout.mode === 'unavailable'
-                  ? copy.helpUnavailable
-                  : resolving
-                    ? copy.helpResolving
-                    : resolveFailed
-                      ? copy.helpResolveFailed
-                      : sponsoring
-                        ? copy.helpSponsor
-                        : passTarget
-                          ? interpolate(copy.helpPass, {
-                              amount: formatUsd(passTarget.amountCents),
-                              rank: passTarget.rank,
-                            })
-                          : copy.helpDefault}
-              </p>
-            </div>
-            {data.checkout.turnstileSiteKey ? (
-              <div className="cf-turnstile" data-sitekey={data.checkout.turnstileSiteKey} />
-            ) : null}
-            {showListingMeta ? (
-              <div className="listing-meta">
-                {previewLogo || listingTitle ? (
-                  <div className="resolved-identity">
-                    {previewLogo ? (
-                      <img src={previewLogo} alt="" width="40" height="40" />
-                    ) : null}
-                    <div>
-                      <strong>{listingTitle || (normalizedIdentity.ok ? normalizedIdentity.identity.display : '')}</strong>
-                      {listingDescription ? <p>{listingDescription}</p> : null}
-                    </div>
-                  </div>
                 ) : null}
-                <label>
-                  <span>{copy.title}</span>
-                  <input
-                    value={listingTitle}
-                    onChange={(event) => setListingTitle(event.target.value)}
-                    placeholder={copy.titlePlaceholder}
-                    maxLength={80}
-                    required
-                  />
-                </label>
-                <label>
-                  <span>{copy.description}</span>
-                  <textarea
-                    value={listingDescription}
-                    onChange={(event) => setListingDescription(event.target.value)}
-                    placeholder={copy.descriptionPlaceholder}
-                    maxLength={240}
-                    rows={2}
-                    required
-                  />
-                </label>
-                <label>
-                  <span>{copy.imageUrl} <em>{copy.optional}</em></span>
-                  <input
-                    value={listingImageUrl}
-                    onChange={(event) => setListingImageUrl(event.target.value)}
-                    placeholder="https://…"
-                    inputMode="url"
-                  />
-                </label>
               </div>
-            ) : null}
-            <p className="field-error" id="identity-error" role="alert">{identityError}</p>
-          </form>
-        </section>
+              <label>
+                <span>{copy.title}</span>
+                <input
+                  value={listingTitle}
+                  onChange={(event) => setListingTitle(event.target.value)}
+                  placeholder={copy.titlePlaceholder}
+                  maxLength={80}
+                  required
+                />
+              </label>
+              <label>
+                <span>{copy.description}</span>
+                <textarea
+                  value={listingDescription}
+                  onChange={(event) => setListingDescription(event.target.value)}
+                  placeholder={copy.descriptionPlaceholder}
+                  maxLength={240}
+                  rows={2}
+                  required
+                />
+              </label>
+              <label>
+                <span>{copy.imageUrl} <em>{copy.optional}</em></span>
+                <input
+                  value={listingImageUrl}
+                  onChange={(event) => setListingImageUrl(event.target.value)}
+                  placeholder="https://…"
+                  inputMode="url"
+                />
+              </label>
+            </div>
+          ) : null}
+          <p className="field-error" id="identity-error" role="alert">{identityError}</p>
+        </form>
+      </section>
 
-        <section className="takeover-offer" aria-label={copy.takeoverAria}>
+      <section className="takeover-offer" aria-label={copy.takeoverAria}>
+        <Mascot mood="takeover" size={56} follow={false} frozenAt={0.6} />
+        <div className="takeover-copy">
+          <strong>{copy.takeoverTitle ?? en.takeoverTitle}</strong>
           <p>
-            <strong>{copy.takeoverNew}</strong> {copy.takeoverOwn}{' '}
-            <span className="takeover-price">{formatUsd(takeoverAmountLive)}</span>{' '}
-            {nextTakeoverDropMs != null ? (
-              <span className="takeover-countdown">
-                {interpolate(copy.takeoverNextDrop, { time: formatDurationShort(nextTakeoverDropMs) })}
-              </span>
-            ) : (
-              <span className="takeover-countdown">{copy.takeoverAtFloor}</span>
-            )}
+            {copy.takeoverLead ?? en.takeoverLead}{' '}
+            <span className="takeover-price num">{interpolate(copy.takeoverNow ?? en.takeoverNow!, { amount: formatUsd(takeoverAmountLive) })}</span>{' '}
+            <span className="takeover-countdown">
+              {nextTakeoverDropMs != null
+                ? interpolate(copy.takeoverNextDrop, { time: formatDurationShort(nextTakeoverDropMs) })
+                : copy.takeoverAtFloor}
+            </span>
           </p>
-          <button type="button" onClick={chooseTakeover} disabled={Boolean(activeTakeover)}>
-            {activeTakeover ? copy.takeoverActive : copy.takeOver}
-          </button>
-        </section>
+        </div>
+        <button className="pill-button" type="button" onClick={chooseTakeover} disabled={Boolean(activeTakeover)}>
+          {activeTakeover ? copy.takeoverActive : copy.takeOver}
+        </button>
       </section>
 
       <section className="leaderboard" aria-labelledby="leaderboard-heading">
-        <h2 className="sr-only" id="leaderboard-heading">{copy.boardHeading}</h2>
-        <div className="board-controls">
-          <button className="refresh-button" type="button" onClick={() => void router.invalidate()}>
-            {copy.refresh}
-          </button>
-          <nav className="pagination" aria-label={copy.pagesAria}>
-            <button type="button" onClick={() => setPage(board.page - 1)} disabled={board.page === 1}>{copy.prev}</button>
-            {Array.from({ length: board.pageCount }, (_, index) => index + 1).map((pageNumber) => (
-              <button
-                key={pageNumber}
-                type="button"
-                className={pageNumber === board.page ? 'current-page' : undefined}
-                aria-current={pageNumber === board.page ? 'page' : undefined}
-                onClick={() => setPage(pageNumber)}
-              >
-                {pageNumber}
-              </button>
-            ))}
-            <button type="button" onClick={() => setPage(board.page + 1)} disabled={board.page === board.pageCount}>{copy.next}</button>
-          </nav>
+        <div className="board-head">
+          <h2 id="leaderboard-heading">{copy.boardTitle ?? en.boardTitle}</h2>
+          <div className="board-meta">
+            <span className="num">{interpolate(copy.liveCount ?? en.liveCount!, { count: rankedListings.length })}</span>
+            <button className="text-button" type="button" onClick={() => void router.invalidate()}>
+              {copy.refresh}
+            </button>
+          </div>
         </div>
 
         {board.takeover ? (
@@ -511,8 +531,8 @@ function Home() {
                 time: new Date(board.takeover.endsAt).toLocaleTimeString(htmlLang, { hour: '2-digit', minute: '2-digit' }),
               })}
             </p>
-            <strong>{formatUsd(board.takeover.amountCents)}</strong>
-            <button type="button" onClick={() => setPage(2)}>{copy.browseRegular}</button>
+            <strong className="num">{formatUsd(board.takeover.amountCents)}</strong>
+            <button className="pill-button" type="button" onClick={() => setPage(2)}>{copy.browseRegular}</button>
           </article>
         ) : (
           <div className="listing-stack">
@@ -523,75 +543,61 @@ function Home() {
               const rank = board.firstRank + index
               const passCents = amountToClaim(listing.amountCents)
               const runway = listingRunway(listing, clockIso)
-              const daysLabel = formatDaysLeft(runway.daysLeft, copy)
+              const settledAgoMs = Math.max(0, Date.parse(clockIso) - Date.parse(listing.settledAt))
               return (
                 <article
-                  className={`listing-card rank-${Math.min(rank, 4)}${runway.fading ? ' listing-card--fading' : ''}`}
+                  className={`listing-row${runway.fading ? ' listing-row--fading' : ''}`}
                   key={listing.id}
+                  onMouseEnter={() => setLiveFace(listing.id)}
+                  onMouseLeave={() => setLiveFace((current) => (current === listing.id ? null : current))}
                   onClick={(event) => {
                     if ((event.target as HTMLElement).closest('a, button')) return
                     passListing(listing, rank)
                   }}
                 >
-                  <button className="rank-badge" type="button" onClick={() => passListing(listing, rank)} aria-label={interpolate(copy.passForAria, { amount: formatUsd(passCents) })}>
-                    #{rank}
-                  </button>
-                  {listing.image ? <img src={listing.image} alt="" width="56" height="56" loading="lazy" /> : null}
+                  <span className="listing-rank num">{rank}</span>
+                  <ListingFace
+                    identity={listingIdentity(listing)}
+                    size={44}
+                    rank={rank}
+                    settledAgoMs={settledAgoMs}
+                    daysLeft={runway.daysLeft}
+                    fading={runway.fading}
+                    live={liveFace === listing.id}
+                  />
                   <div className="listing-copy">
                     <a href={listing.href} target="_blank" rel="sponsored noopener noreferrer">
                       {listing.domain}
                     </a>
                     <p>{listing.description === en.defaultDescription ? copy.defaultDescription : listing.description}</p>
                     <small>
-                      {formatRelativeAge(listing.settledAt, clockIso, copy)}
-                      <span className="meta-dot" aria-hidden="true">•</span>
-                      <strong>{interpolate(copy.clicks, { count: formatCount(listing.clicks, htmlLang) })}</strong>
+                      <span className="num">{formatDaysLeft(runway.daysLeft, copy)}</span>
+                      <span className="num">{interpolate(copy.clicks, { count: formatCount(listing.clicks, htmlLang) })}</span>
+                      <span>{formatRelativeAge(listing.settledAt, clockIso, copy)}</span>
+                      {runway.fading ? <span className="decay">{copy.droppingSoon ?? en.droppingSoon}</span> : null}
                     </small>
                   </div>
-                  <div className="listing-actions">
-                    <div className="listing-amounts">
-                      <p className="listing-amount" aria-label={interpolate(copy.currentAmountAria, { amount: formatUsd(listing.amountCents) })}>
-                        {formatUsd(listing.amountCents)}
+                  <div className="listing-amounts">
+                    <p className="listing-amount num" aria-label={interpolate(copy.currentAmountAria, { amount: formatUsd(listing.amountCents) })}>
+                      {formatUsd(listing.amountCents)}
+                    </p>
+                    {listing.contributionCents > listing.amountCents ? (
+                      <p className="listing-amount-initial num" aria-label={interpolate(copy.initialAmountAria, { amount: formatUsd(listing.contributionCents) })}>
+                        {formatUsd(listing.contributionCents)}
                       </p>
-                      {listing.contributionCents > listing.amountCents ? (
-                        <p
-                          className="listing-amount-initial"
-                          aria-label={interpolate(copy.initialAmountAria, { amount: formatUsd(listing.contributionCents) })}
-                        >
-                          {formatUsd(listing.contributionCents)}
-                        </p>
-                      ) : null}
-                    </div>
-                    <div className="listing-card-hover-actions">
+                    ) : null}
+                    <div className="listing-hover-actions">
                       <button
-                        className="pass-rank"
+                        className="claim-pill num"
                         type="button"
                         onClick={() => passListing(listing, rank)}
                         aria-label={interpolate(copy.passForAria, { amount: formatUsd(passCents) })}
                       >
-                        {interpolate(copy.passFor, { amount: formatUsd(passCents) })}
+                        {interpolate(copy.claimRank ?? en.claimRank!, { rank, amount: formatUsd(passCents) })}
                       </button>
-                      <button
-                        className="sponsor-rank"
-                        type="button"
-                        onClick={() => sponsorListing(listing)}
-                        aria-label={copy.sponsorForAria}
-                      >
+                      <button className="text-button" type="button" onClick={() => sponsorListing(listing)} aria-label={copy.sponsorForAria}>
                         {copy.sponsor}
                       </button>
-                    </div>
-                  </div>
-                  <div className="listing-card-footer">
-                    <span className="runway-label">{daysLabel}</span>
-                    <div
-                      className="runway-track"
-                      role="progressbar"
-                      aria-valuemin={0}
-                      aria-valuemax={100}
-                      aria-valuenow={Math.round(runway.fraction * 100)}
-                      aria-label={interpolate(copy.runwayAria, { count: Math.ceil(runway.daysLeft) })}
-                    >
-                      <span className="runway-fill" style={{ width: `${Math.round(runway.fraction * 100)}%` }} />
                     </div>
                   </div>
                 </article>
@@ -599,6 +605,24 @@ function Home() {
             })}
           </div>
         )}
+
+        {board.pageCount > 1 ? (
+          <nav className="pagination" aria-label={copy.pagesAria}>
+            <button className="text-button" type="button" onClick={() => setPage(board.page - 1)} disabled={board.page === 1}>{copy.prev}</button>
+            {Array.from({ length: board.pageCount }, (_, index) => index + 1).map((pageNumber) => (
+              <button
+                key={pageNumber}
+                type="button"
+                className={`text-button num${pageNumber === board.page ? ' current-page' : ''}`}
+                aria-current={pageNumber === board.page ? 'page' : undefined}
+                onClick={() => setPage(pageNumber)}
+              >
+                {pageNumber}
+              </button>
+            ))}
+            <button className="text-button" type="button" onClick={() => setPage(board.page + 1)} disabled={board.page === board.pageCount}>{copy.next}</button>
+          </nav>
+        ) : null}
       </section>
 
       <SiteFooter />
@@ -613,11 +637,9 @@ function Home() {
             <dl>
               <div><dt>{copy.listing}</dt><dd>{listingTitle || (normalizedIdentity.ok ? normalizedIdentity.identity.display : identityInput)}</dd></div>
               <div><dt>{copy.placement}</dt><dd>{takeover ? copy.placementTakeover : interpolate(copy.projectedRank, { rank: previewRank })}</dd></div>
-              <div><dt>{copy.total}</dt><dd>{formatUsd(amountCents)}</dd></div>
+              <div><dt>{copy.total}</dt><dd className="num">{formatUsd(amountCents)}</dd></div>
             </dl>
-            <p className="payment-note">
-              {copy.paymentNote}
-            </p>
+            <p className="payment-note">{copy.paymentNote}</p>
             <button className="primary-button modal-primary" type="button" disabled={busy} onClick={() => void confirmMockPayment()}>
               {copy.confirmMock}
             </button>

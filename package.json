@@ -20,6 +20,7 @@
   "dependencies": {
     "@tanstack/react-router": "latest",
     "@tanstack/react-start": "latest",
+    "bloub-react": "file:..\\bloub-react",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "stripe": "^22.5.0"

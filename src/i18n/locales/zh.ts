@@ -1,6 +1,18 @@
 import type { Messages } from '../types.ts'
 
 export const zh: Messages = {
+  heroTitle: '一个花钱才能上的公开榜单。',
+  heroLead: '为你的产品出价一美元起。排名跟着你的出价今天值多少——每笔金额每天下跌',
+  heroLeadEmphasis: '3%',
+  boardTitle: '榜单',
+  liveCount: '{count} 个在榜',
+  claimRank: '花 {amount} 拿下第 {rank} 名',
+  takeoverTitle: '包下首页三小时',
+  takeoverLead: '从上次包场结束时领先者的 4 倍起，一天内降到 1.2 倍。',
+  takeoverNow: '现价 {amount}。',
+  boardFooter: '付费展示，按当前已验证出价排序。金额每天下跌 3%。任何人都可以给条目加钱；只有所有者能改文字。',
+  navStats: '数据',
+  droppingSoon: '即将掉榜',
   navRules: '规则',
   navGitHub: 'GitHub',
   navSite: '站点',

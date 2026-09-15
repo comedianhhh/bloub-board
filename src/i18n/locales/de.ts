@@ -1,6 +1,18 @@
 import type { Messages } from '../types.ts'
 
 export const de: Messages = {
+  heroTitle: 'Ein öffentliches Board, auf dem man für den Platz zahlt.',
+  heroLead: 'Biete ab einem Dollar für dein Produkt. Der Rang folgt dem heutigen Wert deines Gebots – jeder Betrag fällt um',
+  heroLeadEmphasis: '3 % pro Tag',
+  boardTitle: 'Board',
+  liveCount: '{count} live',
+  claimRank: 'Platz {rank} für {amount} holen',
+  takeoverTitle: 'Die erste Seite für drei Stunden übernehmen',
+  takeoverLead: 'Beginnt beim 4-Fachen des Spitzenreiters nach der letzten Übernahme und fällt über einen Tag auf das 1,2-Fache.',
+  takeoverNow: 'Jetzt {amount}.',
+  boardFooter: 'Bezahlte Platzierung, sortiert nach aktuellem verifiziertem Gebot. Beträge fallen um 3 % pro Tag. Jeder kann einem Eintrag Geld hinzufügen; nur der Besitzer ändert den Text.',
+  navStats: 'Statistik',
+  droppingSoon: 'fällt bald heraus',
   navRules: 'Regeln',
   navGitHub: 'GitHub',
   navSite: 'Seite',

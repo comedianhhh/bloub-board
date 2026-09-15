@@ -1,6 +1,18 @@
 import type { Messages } from '../types.ts'
 
 export const fr: Messages = {
+  heroTitle: 'Un tableau public où l’on paie pour figurer.',
+  heroLead: 'Misez un dollar ou plus pour votre produit. Le rang suit ce que vaut votre mise aujourd’hui – chaque montant baisse de',
+  heroLeadEmphasis: '3 % par jour',
+  boardTitle: 'Tableau',
+  liveCount: '{count} en ligne',
+  claimRank: 'Prendre la place {rank} pour {amount}',
+  takeoverTitle: 'Occuper la première page pendant trois heures',
+  takeoverLead: 'Démarre à 4× le leader après la dernière prise, redescend à 1,2× en une journée.',
+  takeoverNow: 'Maintenant {amount}.',
+  boardFooter: 'Placement payant, classé par mise vérifiée actuelle. Les montants baissent de 3 % par jour. Chacun peut ajouter de l’argent à une annonce ; seul son propriétaire en change le texte.',
+  navStats: 'Stats',
+  droppingSoon: 'bientôt retiré',
   navRules: 'Règles',
   navGitHub: 'GitHub',
   navSite: 'Site',

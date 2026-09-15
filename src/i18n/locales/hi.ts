@@ -1,6 +1,18 @@
 import type { Messages } from '../types.ts'
 
 export const hi: Messages = {
+  heroTitle: 'एक सार्वजनिक बोर्ड जिस पर होने के लिए आप पैसे देते हैं।',
+  heroLead: 'अपने प्रोडक्ट के लिए एक डॉलर या अधिक की बोली लगाएँ। रैंक आज आपकी बोली की कीमत पर निर्भर है — हर राशि रोज़',
+  heroLeadEmphasis: '3% घटती है',
+  boardTitle: 'बोर्ड',
+  liveCount: '{count} लाइव',
+  claimRank: '{amount} में #{rank} लें',
+  takeoverTitle: 'पहला पेज तीन घंटे के लिए अपना बनाएँ',
+  takeoverLead: 'पिछले टेकओवर के बाद लीडर के 4× से शुरू, एक दिन में 1.2× तक गिरता है।',
+  takeoverNow: 'अभी {amount}।',
+  boardFooter: 'सशुल्क स्थान, वर्तमान सत्यापित बोली के अनुसार क्रमबद्ध। राशियाँ रोज़ 3% घटती हैं। कोई भी किसी लिस्टिंग में पैसा जोड़ सकता है; केवल मालिक ही टेक्स्ट बदल सकता है।',
+  navStats: 'आँकड़े',
+  droppingSoon: 'जल्द हटेगा',
   navRules: 'नियम',
   navGitHub: 'GitHub',
   navSite: 'साइट',

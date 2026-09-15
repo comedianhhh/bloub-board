@@ -1,6 +1,18 @@
 import type { Messages } from '../types.ts'
 
 export const fa: Messages = {
+  heroTitle: 'یک تابلوی عمومی که برای بودن در آن پول می‌دهید.',
+  heroLead: 'برای محصولتان یک دلار یا بیشتر پیشنهاد دهید. رتبه از ارزش امروزِ پیشنهاد شما پیروی می‌کند — هر مبلغ روزانه',
+  heroLeadEmphasis: '۳٪ کم می‌شود',
+  boardTitle: 'تابلو',
+  liveCount: '{count} فعال',
+  claimRank: 'گرفتن رتبهٔ {rank} با {amount}',
+  takeoverTitle: 'صفحهٔ اول را سه ساعت در اختیار بگیرید',
+  takeoverLead: 'از ۴ برابر نفر اول پس از آخرین تصاحب شروع می‌شود و طی یک روز به ۱٫۲ برابر می‌رسد.',
+  takeoverNow: 'اکنون {amount}.',
+  boardFooter: 'جایگاه پولی، بر اساس پیشنهاد تأییدشدهٔ فعلی. مبالغ روزانه ۳٪ کم می‌شوند. هر کسی می‌تواند به یک آگهی پول اضافه کند؛ فقط مالک متن را تغییر می‌دهد.',
+  navStats: 'آمار',
+  droppingSoon: 'به‌زودی حذف می‌شود',
   navRules: 'قوانین',
   navGitHub: 'GitHub',
   navSite: 'سایت',

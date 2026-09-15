@@ -1,6 +1,18 @@
 import type { Messages } from '../types.ts'
 
 export const en: Messages = {
+  heroTitle: 'A public board you pay to be on.',
+  heroLead: 'Bid a dollar or more for your product. Rank follows what your bid is worth today — every amount falls',
+  heroLeadEmphasis: '3% a day',
+  boardTitle: 'Board',
+  liveCount: '{count} live',
+  claimRank: 'Claim #{rank} for {amount}',
+  takeoverTitle: 'Take over the first page for three hours',
+  takeoverLead: 'Starts at 4× the leader after the last takeover, falls to 1.2× over a day.',
+  takeoverNow: 'Now {amount}.',
+  boardFooter: 'Paid placement, ranked by current verified bid. Amounts fall 3% a day. Anyone can add money to a listing; only its owner can change the text.',
+  navStats: 'Stats',
+  droppingSoon: 'dropping off soon',
   navRules: 'Rules',
   navGitHub: 'GitHub',
   navSite: 'Site',

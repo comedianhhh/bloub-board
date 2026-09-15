@@ -9,6 +9,7 @@ import { interpolate } from '../i18n/locale.ts'
 import { database } from '../server/env.ts'
 import { loadPublicStats, loadReceipt } from '../server/db.ts'
 import { resolveRequestLocale } from '../server/locale.ts'
+import { Mascot } from '../ui/bloub.tsx'
 import { SiteFooter, SiteHeader } from '../ui/site-chrome.tsx'
 
 const loadReceiptPage = createServerFn({ method: 'GET' })
@@ -28,7 +29,7 @@ export const Route = createFileRoute('/receipts/$intentId')({
 })
 
 function ReceiptPage() {
-  const { receipt, visitorsOnline, visitorsLast24h } = Route.useLoaderData()
+  const { receipt } = Route.useLoaderData()
   const router = useRouter()
 
   useEffect(() => {
@@ -41,7 +42,7 @@ function ReceiptPage() {
 
   return (
     <main className="site-shell">
-      <SiteHeader visitorsOnline={visitorsOnline} visitorsLast24h={visitorsLast24h} />
+      <SiteHeader />
       <section className="page-panel receipt-panel" aria-labelledby="receipt-heading">
         {receipt ? <ReceiptBody receipt={receipt} /> : <MissingReceipt />}
       </section>
@@ -65,8 +66,15 @@ function ReceiptBody({ receipt }: { receipt: PublicReceipt }) {
             ? copy.checkoutExpired
             : copy.waitingPayment
 
+  const mood = settled
+    ? 'done'
+    : receipt.status === 'needs-support' || receipt.status === 'expired'
+      ? 'error'
+      : 'waiting'
+
   return (
     <>
+      <Mascot mood={mood} size={120} follow={settled} />
       <p className={`page-kicker ${settled ? 'paid' : ''}`}>
         {settled ? copy.paidSettled : copy.checkoutReturn}
       </p>
