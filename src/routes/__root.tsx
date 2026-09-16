@@ -50,6 +50,14 @@ export const Route = createRootRoute({
         href: appCss,
       },
     ],
+    scripts: [
+      // Cloudflare Web Analytics: page views only, no cookies, no individual tracking
+      {
+        src: 'https://static.cloudflareinsights.com/beacon.min.js',
+        defer: true,
+        'data-cf-beacon': '{"token": "7eb3abe9f225464cab4ed7775e917244"}',
+      },
+    ],
   }),
   shellComponent: RootDocument,
 })
